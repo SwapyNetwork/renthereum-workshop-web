@@ -1,5 +1,7 @@
 # Renthereum
 
+####NOTE: Swapy Network together with Ethereum BH Meetup Group is going to host a Ethereum workshop in Belo Horizonte, Brazil. This repository was created for educational purposes only.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
 ## Development server
