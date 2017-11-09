@@ -17,14 +17,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { NewItemDialogComponent } from './dialogs/new-item-dialog';
+import { RentDialogComponent } from './dialogs/rent-item-dialog';
 import { RenthereumService } from './contracts/renthereum.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewItemDialogComponent,
+    RentDialogComponent,
   ],
-  entryComponents: [NewItemDialogComponent],
+  entryComponents: [NewItemDialogComponent, RentDialogComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

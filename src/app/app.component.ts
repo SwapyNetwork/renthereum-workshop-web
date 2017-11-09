@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { NewItemDialogComponent } from './dialogs/new-item-dialog';
+import { RentDialogComponent } from './dialogs/rent-item-dialog';
 import { RenthereumService } from './contracts/renthereum.service';
 
 @Component({
@@ -19,8 +20,18 @@ export class AppComponent implements OnInit {
     renthereum.init();
   }
 
-  openDialog(): void {
+  openNewItemDialog(): void {
     const dialogRef = this.dialog.open(NewItemDialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openRentDialog(): void {
+    const dialogRef = this.dialog.open(RentDialogComponent, {
       width: '250px',
     });
 
@@ -31,7 +42,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const self = this;
-    // this.createOrder('123', 'testing', 'pao de batata', 5000, 2, 15);
+    // this.renthereum.createOrder('10', 'PS4', 'gaming console', 3, 3, 10);
     return this.renthereum.getItemsToRent().then(items => {
       self.itemsToRent = items;
       this.changeDetectorRef.detectChanges();
