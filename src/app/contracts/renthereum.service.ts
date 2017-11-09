@@ -25,8 +25,8 @@ export class RenthereumService {
 
   public createOrder(id: string, name: string, description: string, dailyValue: number, minPeriod: number, maxPeriod: number) {
     const encoded = this.contract.methods.createOrder(id, name, description, dailyValue, minPeriod, maxPeriod).encodeABI();
-    this.web3.eth.getAccounts((err, accounts) => {
-      this.web3.eth.sendTransaction({
+    return this.web3.eth.getAccounts((err, accounts) => {
+      return this.web3.eth.sendTransaction({
         from: accounts[0],
         to: this.contract._address,
         data: encoded,

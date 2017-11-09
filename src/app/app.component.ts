@@ -21,20 +21,23 @@ export class AppComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NewItemDialogComponent, {
-      width: '250px',
+      width: '500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.loadItems();
     });
   }
 
-  ngOnInit() {
+  private loadItems() {
     const self = this;
     // this.createOrder('123', 'testing', 'pao de batata', 5000, 2, 15);
     return this.renthereum.getItemsToRent().then(items => {
       self.itemsToRent = items;
       this.changeDetectorRef.detectChanges();
     });
+  }
+  ngOnInit() {
+    this.loadItems();
   }
 }

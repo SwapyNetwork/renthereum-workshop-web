@@ -1,4 +1,9 @@
-<div>
+<div fxLayout="column">
+  <h2 mat-dialog-title>New Item For Rent</h2>
+  <mat-form-field>
+    <input [(ngModel)]="id" matInput placeholder="ID">
+  </mat-form-field>
+
   <mat-form-field>
     <input [(ngModel)]="name" matInput placeholder="Name">
   </mat-form-field>
@@ -8,10 +13,20 @@
   </mat-form-field>
 
   <mat-form-field>
+    <input [(ngModel)]="dailyValue" type="number" matInput placeholder="Daily value">
+    <span matPrefix>ETH</span>
+  </mat-form-field>
+
+  <mat-form-field>
     <input [(ngModel)]="minPeriod" type="number" matInput placeholder="Minimum period">
+    <span matSuffix>Days</span>
   </mat-form-field>
 
   <mat-form-field>
     <input [(ngModel)]="maxPeriod" type="number" matInput placeholder="Maximum period">
+    <span matSuffix>Days</span>
   </mat-form-field>
+  <mat-dialog-actions fxLayoutAlign="end">
+    <button mat-button color="accent" mat-dialog-close (click)="createOrder(id, name, description, dailyValue, minPeriod, maxPeriod)">CREATE</button>
+  </mat-dialog-actions>
 </div>

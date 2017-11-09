@@ -5,6 +5,6 @@ body {
   margin: 0px !important;
 }
 
-.lightgreen {
-  color: lightgreen;
+.mat-input-prefix {
+  margin-right: 5px;
 }
