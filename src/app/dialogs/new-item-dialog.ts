@@ -6,6 +6,11 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   templateUrl: 'new-item-dialog.html',
 })
 export class NewItemDialogComponent {
+  name: string;
+  description: string;
+  minPeriod: number;
+  maxPeriod: number;
+
   constructor(
     public dialogRef: MatDialogRef<NewItemDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -13,4 +18,5 @@ export class NewItemDialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
 }

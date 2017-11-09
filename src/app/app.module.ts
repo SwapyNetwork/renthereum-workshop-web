@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
 
@@ -9,11 +10,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { NewItemDialogComponent } from './dialogs/new-item-dialog';
+import { RenthereumService } from './contracts/renthereum.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import { NewItemDialogComponent } from './dialogs/new-item-dialog';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatMenuModule,
     MatToolbarModule,
     MatCardModule,
@@ -31,8 +36,10 @@ import { NewItemDialogComponent } from './dialogs/new-item-dialog';
     MatButtonModule,
     MatChipsModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
-  providers: [],
+  providers: [RenthereumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

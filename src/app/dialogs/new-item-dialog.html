@@ -1,10 +1,17 @@
-<ol>
-  <li>
-  </li>
-  <li>
-    <button mat-raised-button (click)="openDialog()">Pick one</button>
-  </li>
-  <li *ngIf="animal">
-    You chose: <i>{{animal}}</i>
-  </li>
-</ol>
+<div>
+  <mat-form-field>
+    <input [(ngModel)]="name" matInput placeholder="Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea [(ngModel)]="description" matInput placeholder="Description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)]="minPeriod" type="number" matInput placeholder="Minimum period">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)]="maxPeriod" type="number" matInput placeholder="Maximum period">
+  </mat-form-field>
+</div>
