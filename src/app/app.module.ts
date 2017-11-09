@@ -11,6 +11,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
+import { Web3Service } from './services/web3.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AppComponent } from './app.component';
     MatGridListModule,
     MatChipsModule,
   ],
-  providers: [],
+  providers: [Web3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
