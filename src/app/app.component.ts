@@ -30,9 +30,10 @@ export class AppComponent implements OnInit {
     });
   }
 
-  openRentDialog(): void {
+  openRentItemDialog(item): void {
     const dialogRef = this.dialog.open(RentItemDialogComponent, {
       width: '250px',
+      data : { item: item }
     });
 
     dialogRef.afterClosed().subscribe(result => {
