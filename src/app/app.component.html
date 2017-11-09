@@ -1,5 +1,8 @@
-<mat-toolbar color="accent">
+<mat-toolbar color="accent" fxLayout="row">
   Renthereum
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" fxLayoutAlign="end" (click)="openDialog() ">New Item</button>
+
 </mat-toolbar>
 
 <div class="content" fxLayout="row wrap">
@@ -13,7 +16,7 @@
       </mat-chip-list>
     </mat-card-content>
     <mat-card-content fxLayoutAlign="space-between">
-      <mat-chip color="warn">Min {{item.minPeriod}} days</mat-chip>
+      <mat-chip color="">Min {{item.minPeriod}} days</mat-chip>
       <mat-chip color="warn">Max {{item.maxPeriod}} days</mat-chip>
     </mat-card-content>
     <mat-card-actions fxLayoutAlign="end">

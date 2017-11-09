@@ -1,4 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
+import { NewItemDialogComponent } from './dialogs/new-item-dialog';
+
 import Web3 from 'web3';
 import * as Renthereum from '../contracts/Renthereum.json';
 
@@ -14,7 +18,7 @@ export class AppComponent implements OnInit {
 
   itemsToRent: any[];
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef, public dialog: MatDialog) {
     if (typeof (window as any).web3 !== 'undefined') {
       (window as any).web3 = new Web3((window as any).web3.currentProvider);
       this.web3 = (window as any).web3;
@@ -50,6 +54,16 @@ export class AppComponent implements OnInit {
       }
 
       return Promise.all(promises);
+    });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NewItemDialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 

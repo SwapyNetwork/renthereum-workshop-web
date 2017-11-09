@@ -5,3 +5,7 @@
 .mat-card {
   margin: 7px;
 }
+
+.example-spacer {
+  flex: 1 1 auto;
+}
