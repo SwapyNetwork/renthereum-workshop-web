@@ -1,4 +1,4 @@
-<mat-toolbar color="accent" fxLayout="row">
+<mat-toolbar class="mat-elevation-z6" color="accent" fxLayout="row">
   Renthereum
   <span class="example-spacer"></span>
   <button mat-raised-button color="primary" fxLayoutAlign="end" (click)="openNewItemDialog() ">New Item</button>
@@ -8,7 +8,7 @@
 <div class="content" fxLayout="row wrap">
   <mat-card *ngFor="let item of itemsToRent, let i of index" fxFlex="23.5">
     <mat-card-title>{{item.name}}</mat-card-title>
-    <img mat-card-image src="http://lorempixel.com/200/200/" alt="Item image" />
+    <!-- <img mat-card-image src="http://lorempixel.com/200/200/" alt="Item image" /> -->
     <mat-card-content>{{item.description}}</mat-card-content>
     <mat-card-content >
       <mat-chip-list class="mat-chip-list-stacked">
