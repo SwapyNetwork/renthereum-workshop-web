@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { NewItemDialogComponent } from './dialogs/new-item-dialog';
-import { RentDialogComponent } from './dialogs/rent-item-dialog';
+import { RentItemDialogComponent } from './dialogs/rent-item-dialog';
 import { RenthereumService } from './contracts/renthereum.service';
 
 @Component({
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   openRentDialog(): void {
-    const dialogRef = this.dialog.open(RentDialogComponent, {
+    const dialogRef = this.dialog.open(RentItemDialogComponent, {
       width: '250px',
     });
 
