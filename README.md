@@ -7,9 +7,15 @@ Example of an application to rent items.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
-## Development server
+## Installing
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Clone the repo and do a `npm install`.
+- Make sure you have followed the [renthereum-workshop-contracts](https://github.com/SwapyNetwork/renthereum-workshop-contracts) instructions and deployed the contract into a testrpc network.
+- Copy the contract ABI into the contracts folder:
+```
+$ cp ../renthereum-workshop-contracts/build/contracts/Renthereum.json src/app/contracts
+```
+- Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
