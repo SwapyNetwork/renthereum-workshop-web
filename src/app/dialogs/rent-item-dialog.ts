@@ -40,7 +40,7 @@ export class RentItemDialogComponent {
     this.renthereum.rent(item.index, period, this.renthereum.web3.utils.toWei(price));
   }
 
-  onNoClick(): void {
+  public onNoClick(): void {
     this.dialogRef.close();
   }
 }
