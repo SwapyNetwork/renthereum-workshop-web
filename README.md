@@ -1,4 +1,7 @@
-# Renthereum
+<img src="https://github.com/swapynetwork/renthereum-workshop-contracts/blob/master/renthereum128.png">
+
+# Ethereum Workshop: Renthereum.
+Example of an application to rent items.
 
 #### NOTE: Swapy Network together with Ethereum BH Meetup Group is going to host a Ethereum workshop in Belo Horizonte, Brazil. This repository was created for educational purposes only.
 
