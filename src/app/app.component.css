@@ -9,3 +9,7 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.mat-raised-button {
+  margin: 10px;
+}

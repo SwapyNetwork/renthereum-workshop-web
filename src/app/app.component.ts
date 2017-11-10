@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   title = 'Renthereum';
   private web3;
 
-  itemsToRent: any[];
+  itemsToRent: any[] = [];
 
   constructor(private changeDetectorRef: ChangeDetectorRef, public dialog: MatDialog, public renthereum: RenthereumService) {
     renthereum.init();
@@ -41,9 +41,8 @@ export class AppComponent implements OnInit {
   }
 
   private loadItems() {
-    const self = this;
     return this.renthereum.getItemsToRent().then(items => {
-      self.itemsToRent = items;
+      this.itemsToRent = this.itemsToRent.concat(items);
       this.changeDetectorRef.detectChanges();
     });
   }

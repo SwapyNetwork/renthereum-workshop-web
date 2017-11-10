@@ -5,6 +5,10 @@
 
 </mat-toolbar>
 
+<div align="center">
+  <button mat-raised-button color="primary" (click)="loadItems()">Refresh</button>
+</div>
+
 <div class="content" fxLayout="row wrap">
   <mat-card *ngFor="let item of itemsToRent" fxFlex="23.5">
     <mat-card-title>{{item.name}}</mat-card-title>

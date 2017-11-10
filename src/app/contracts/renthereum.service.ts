@@ -7,6 +7,7 @@ import * as Renthereum from '../contracts/Renthereum.json';
 export class RenthereumService {
   public web3: Web3;
   public contract: any;
+  public itemsCount: number;
 
   constructor() { }
 
@@ -18,6 +19,8 @@ export class RenthereumService {
       (window as any).web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
       this.web3 = (window as any).web3;
     }
+
+    this.itemsCount = 0;
 
     this.contract = new this.web3.eth.Contract((Renthereum as any).abi,
       (Renthereum as any).networks[Object.keys((Renthereum as any).networks)[0]].address);
@@ -49,17 +52,20 @@ export class RenthereumService {
   }
 
   public getItemsToRent() {
-    const self = this;
     const promises = [];
 
     return this.contract.methods.itemsCount().call().then(count => {
-      for (let i = 0; i < count; i++) {
-        promises.push(new Promise((resolve) => {
-          self.contract.methods.itemsToRent(i).call().then(item => {
-            item.index = i;
-            resolve(item);
-          });
-        }));
+      if (count > this.itemsCount) {
+        for (let i = this.itemsCount; i < count; i++) {
+          promises.push(new Promise((resolve) => {
+            this.contract.methods.itemsToRent(i).call().then(item => {
+              item.index = i;
+              resolve(item);
+            });
+          }));
+        }
+
+        this.itemsCount = count;
       }
 
       return Promise.all(promises);
