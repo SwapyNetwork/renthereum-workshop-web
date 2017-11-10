@@ -1,0 +1,23 @@
+<div align="center">
+  <button mat-raised-button color="primary" (click)="loadItems()">Refresh</button>
+</div>
+
+<div class="content" fxLayout="row wrap">
+  <mat-card *ngFor="let item of itemsToRent" fxFlex="23.5">
+    <mat-card-title>{{item.name}}</mat-card-title>
+    <!-- <img mat-card-image src="http://lorempixel.com/200/200/" alt="Item image" /> -->
+    <mat-card-content>{{item.description}}</mat-card-content>
+    <mat-card-content >
+      <mat-chip-list class="mat-chip-list-stacked">
+        <mat-chip color="accent" selected="true">ETH {{this.renthereum.web3.utils.fromWei(item.dailyValue)}} per day</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-content fxLayoutAlign="space-between">
+      <mat-chip color="">Min {{item.minPeriod}} days</mat-chip>
+      <mat-chip color="warn">Max {{item.maxPeriod}} days</mat-chip>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="end">
+      <button color="accent" (click)="openRentItemDialog(item)" mat-button>RENT</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

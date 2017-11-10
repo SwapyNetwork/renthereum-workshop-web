@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,18 +17,31 @@ import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
+import { MainComponent } from './main/main.component';
+import { OrdersComponent } from './orders/orders.component';
+import { RentedComponent } from './rented/rented.component';
 import { NewItemDialogComponent } from './dialogs/new-item-dialog';
 import { RentItemDialogComponent } from './dialogs/rent-item-dialog';
 import { RenthereumService } from './contracts/renthereum.service';
 
+const appRoutes: Routes = [
+  { path: '', component: MainComponent },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'rented', component: RentedComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
+    MainComponent,
+    OrdersComponent,
+    RentedComponent,
     NewItemDialogComponent,
     RentItemDialogComponent,
   ],
   entryComponents: [NewItemDialogComponent, RentItemDialogComponent],
   imports: [
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
