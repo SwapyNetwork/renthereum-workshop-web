@@ -37,13 +37,13 @@ export class AppComponent implements OnInit {
     });
 
     rentDialogRef.afterClosed().subscribe(result => {
+      this.loadItems();
     });
   }
 
   private loadItems() {
     return this.renthereum.getItemsToRent().then(items => {
-      this.itemsToRent = this.itemsToRent.concat(items);
-      this.changeDetectorRef.detectChanges();
+      this.itemsToRent = items.filter(item => item.status == 0);
     });
   }
 

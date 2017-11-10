@@ -55,19 +55,14 @@ export class RenthereumService {
     const promises = [];
 
     return this.contract.methods.itemsCount().call().then(count => {
-      if (count > this.itemsCount) {
-        for (let i = this.itemsCount; i < count; i++) {
-          promises.push(new Promise((resolve) => {
-            this.contract.methods.itemsToRent(i).call().then(item => {
-              item.index = i;
-              resolve(item);
-            });
-          }));
-        }
-
-        this.itemsCount = count;
+      for (let i = 0; i < count; i++) {
+        promises.push(new Promise((resolve) => {
+          this.contract.methods.itemsToRent(i).call().then(item => {
+            item.index = i;
+            resolve(item);
+          });
+        }));
       }
-
       return Promise.all(promises);
     });
   }

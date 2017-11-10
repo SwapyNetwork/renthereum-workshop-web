@@ -1,4 +1,4 @@
-import { Component, Inject, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component, Inject, ChangeDetectorRef, OnInit, NgZone } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { RenthereumService } from '../contracts/renthereum.service';
@@ -18,6 +18,7 @@ export class RentItemDialogComponent {
     public dialogRef: MatDialogRef<RentItemDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private changeDetectorRef: ChangeDetectorRef,
+    private zone: NgZone,
     public renthereum: RenthereumService) {
       this.setItem(data.item);
       this.BN = this.renthereum.web3.utils.BN;
@@ -25,7 +26,7 @@ export class RentItemDialogComponent {
 
   private setItem(item) {
     this.item = item;
-    setInterval(() => {
+    setTimeout(() => {
       this.changeDetectorRef.detectChanges();
     }, 5);
   }
