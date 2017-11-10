@@ -11,7 +11,7 @@ export class NewItemDialogComponent {
   id: string;
   name: string;
   description: string;
-  dailyValue: number;
+  dailyValue: string;
   minPeriod: number;
   maxPeriod: number;
 

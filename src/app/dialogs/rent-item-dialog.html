@@ -1,1 +1,17 @@
-<h1 mat-dialog-title> {{data.item.name}} </h1>
+<div fxLayout="column">
+  <h2 mat-dialog-title>Rent item: <span class="mat-headline">{{item.name}}</span></h2>
+
+  <mat-form-field>
+    <input [(ngModel)]="numberOfDays" (keyup)="calcPrice(numberOfDays, item.dailyValue)" type="number" matInput placeholder="How many days?">
+    <span matSuffix>Days</span>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)]="price" type="string" disabled matInput placeholder="Price">
+    <span matPrefix>ETH</span>
+  </mat-form-field>
+
+  <mat-dialog-actions fxLayoutAlign="end">
+    <button mat-button color="accent" mat-dialog-close (click)="this.rent(item, this.numberOfDays, this.price)">RENT</button>
+  </mat-dialog-actions>
+</div>

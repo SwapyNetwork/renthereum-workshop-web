@@ -21,32 +21,33 @@ export class AppComponent implements OnInit {
   }
 
   openNewItemDialog(): void {
-    const dialogRef = this.dialog.open(NewItemDialogComponent, {
+    const newItemDialogRef = this.dialog.open(NewItemDialogComponent, {
       width: '500px',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    newItemDialogRef.afterClosed().subscribe(result => {
       this.loadItems();
     });
   }
+
   openRentItemDialog(item): void {
-    const dialogRef = this.dialog.open(RentItemDialogComponent, {
-      width: '250px',
-      data : { item: item }
+    const rentDialogRef = this.dialog.open(RentItemDialogComponent, {
+      width: '500px',
+      data : { item }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    rentDialogRef.afterClosed().subscribe(result => {
     });
   }
+
   private loadItems() {
     const self = this;
-    // this.renthereum.createOrder('10', 'PS4', 'gaming console', 3, 3, 10);
     return this.renthereum.getItemsToRent().then(items => {
       self.itemsToRent = items;
       this.changeDetectorRef.detectChanges();
     });
   }
+
   ngOnInit() {
     this.loadItems();
   }

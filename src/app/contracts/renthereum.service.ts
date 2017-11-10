@@ -35,13 +35,31 @@ export class RenthereumService {
     });
   }
 
+  public rent(id: string, period: number, value: number) {
+    const encoded = this.contract.methods.rent(id, period).encodeABI();
+    return this.web3.eth.getAccounts((err, accounts) => {
+      return this.web3.eth.sendTransaction({
+        from: accounts[0],
+        to: this.contract._address,
+        data: encoded,
+        gas: 5000000,
+        value
+      });
+    });
+  }
+
   public getItemsToRent() {
     const self = this;
     const promises = [];
 
     return this.contract.methods.itemsCount().call().then(count => {
       for (let i = 0; i < count; i++) {
-        promises.push(self.contract.methods.itemsToRent(i).call());
+        promises.push(new Promise((resolve) => {
+          self.contract.methods.itemsToRent(i).call().then(item => {
+            item.index = i;
+            resolve(item);
+          });
+        }));
       }
 
       return Promise.all(promises);

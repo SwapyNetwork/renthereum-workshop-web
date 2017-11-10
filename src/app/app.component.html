@@ -6,7 +6,7 @@
 </mat-toolbar>
 
 <div class="content" fxLayout="row wrap">
-  <mat-card *ngFor="let item of itemsToRent, let i of index" fxFlex="23.5">
+  <mat-card *ngFor="let item of itemsToRent" fxFlex="23.5">
     <mat-card-title>{{item.name}}</mat-card-title>
     <!-- <img mat-card-image src="http://lorempixel.com/200/200/" alt="Item image" /> -->
     <mat-card-content>{{item.description}}</mat-card-content>
